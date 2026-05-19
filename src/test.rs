@@ -6,7 +6,7 @@ use soroban_sdk::{testutils::Address as _, Env, symbol_short};
 fn test_list_asset_stores_listing() {
     let env = Env::default();
     env.mock_all_auths();
-    let contract_id = env.register(None, Marketplace {});
+    let contract_id = env.register_contract(None, Marketplace);
     let client = MarketplaceClient::new(&env, &contract_id);
 
     let seller = Address::generate(&env);
@@ -26,7 +26,7 @@ fn test_list_asset_stores_listing() {
 fn test_buy_asset_deactivates_listing() {
     let env = Env::default();
     env.mock_all_auths();
-    let contract_id = env.register(None, Marketplace {});
+    let contract_id = env.register_contract(None, Marketplace);
     let client = MarketplaceClient::new(&env, &contract_id);
 
     let seller = Address::generate(&env);
@@ -44,7 +44,7 @@ fn test_buy_asset_deactivates_listing() {
 fn test_cancel_listing() {
     let env = Env::default();
     env.mock_all_auths();
-    let contract_id = env.register(None, Marketplace {});
+    let contract_id = env.register_contract(None, Marketplace);
     let client = MarketplaceClient::new(&env, &contract_id);
 
     let seller = Address::generate(&env);
